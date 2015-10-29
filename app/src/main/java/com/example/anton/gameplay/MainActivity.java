@@ -116,7 +116,7 @@ public class MainActivity extends Activity  implements OnTaskCompleted{
 
                 // set dialog message
                 alertDialogBuilder
-                        .setMessage("Test app created to demonstrate the use of CardApi\nBy Anton Bil")
+                        .setMessage("Test app created to demonstrate the use of REST service CardApi\nBy Anton Bil")
                         .setCancelable(false)
                         .setPositiveButton("Yes", new DialogInterface.OnClickListener() {
                             public void onClick(DialogInterface dialog, int id) {
