@@ -1,3 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
     <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
         xmlns:tools="http://schemas.android.com/tools"
         android:orientation="vertical"
@@ -26,14 +31,16 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:minWidth="80dp"
                 android:text="@string/id"
                 android:labelFor="@+id/id_text"
                 android:id="@+id/textView3" />
 
             <EditText
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:id="@+id/id_text"
+                android:hint="@string/id"
                 android:minWidth="100dp"
                 android:editable="true"
                 android:inputType="text" />
@@ -48,12 +55,14 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/name_resource"
+                android:minWidth="80dp"
                 android:labelFor="@+id/name_text"
                 android:id="@+id/textView_name" />
 
             <EditText
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:hint="@string/name_resource"
                 android:id="@+id/name_text"
                 android:minWidth="100dp"
                 android:editable="true"
@@ -69,21 +78,16 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/password_resource"
-                android:labelFor="@+id/editText"
+                android:minWidth="80dp"
+                android:labelFor="@+id/password_text"
                 android:id="@+id/textView_password" />
 
-            <EditText
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:id="@+id/editText"
-                android:password="true"
-                android:labelFor="@+id/password_text"
-                android:inputType="text" />
 
             <EditText
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:id="@+id/password_text"
+                android:hint="@string/password_resource"
                 android:minWidth="100dp"
                 android:editable="true"
                 android:password="true"
@@ -146,10 +150,11 @@
                     android:id="@+id/startgametextview" />
 
                 <EditText
-                    android:layout_width="wrap_content"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:id="@+id/id_gamenumber"
                     android:minWidth="100dp"
+                    android:hint="@string/game_number"
                     android:editable="true"
                     android:inputType="number" />
 
@@ -168,4 +173,4 @@
 
 
     </LinearLayout>
-
+</ScrollView>

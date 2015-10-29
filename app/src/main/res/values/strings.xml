@@ -18,6 +18,6 @@
     <string name="change_name">Change name</string>
     <string name="send_player">Send Player</string>
     <string name="list_games">List Games</string>
-    <string name="game_number">game number:</string>
+    <string name="game_number">game number</string>
     <string name="start_game">Start Game</string>
 </resources>
