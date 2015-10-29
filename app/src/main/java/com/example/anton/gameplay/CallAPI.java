@@ -9,6 +9,7 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.io.PrintWriter;
+import java.io.UnsupportedEncodingException;
 import java.net.HttpURLConnection;
 import java.net.URL;
 import java.net.URLEncoder;
@@ -38,10 +39,14 @@ public class CallAPI extends AsyncTask<String, String, String> {
                     parametersAsQueryString.append(PARAMETER_DELIMITER);
                 }
 
-                parametersAsQueryString.append(parameterName)
-                        .append(PARAMETER_EQUALS_CHAR)
-                        .append(URLEncoder.encode(
-                                parameters.get(parameterName)));
+                try {
+                    parametersAsQueryString.append(parameterName)
+                            .append(PARAMETER_EQUALS_CHAR)
+                            .append(URLEncoder.encode(
+                                    parameters.get(parameterName),"UTF-8"));
+                } catch (UnsupportedEncodingException e) {
+                    e.printStackTrace();
+                }
 
                 firstParameter = false;
             }
@@ -59,7 +64,7 @@ public class CallAPI extends AsyncTask<String, String, String> {
         BufferedReader reader = new BufferedReader(new InputStreamReader(is));
         StringBuilder sb = new StringBuilder();
 
-        String line = null;
+        String line;
         try {
             while ((line = reader.readLine()) != null) {
                 sb.append(line + "\n");
@@ -91,8 +96,8 @@ public class CallAPI extends AsyncTask<String, String, String> {
     /**
      * do http-request in background
      * can be get or post-request
-     * @param params
-     * @return
+     * @param params input parameters
+     * @return String json-result of request
      */
     @Override
     protected String doInBackground(String... params) {
@@ -100,7 +105,7 @@ public class CallAPI extends AsyncTask<String, String, String> {
         String urlString=params[0]; // URL to call
         String request=params[1];//get or post
 
-            String resultToDisplay = "";
+        String resultToDisplay;
 
         InputStream in = null;
 
@@ -149,7 +154,7 @@ public class CallAPI extends AsyncTask<String, String, String> {
 
     /**
      * inform listener that request is finished
-     * @param result
+     * @param result String with json-result of request
      */
     protected void onPostExecute(String result) {
         listener.onTaskCompleted(result,call);
