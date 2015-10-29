@@ -170,31 +170,32 @@ public class MainActivity extends Activity  implements OnTaskCompleted{
     private void startingGames(String result){
         //example how to parse json-string in java
 
-        JSONArray jsonStartingGamesArray=null;
+        TextView tView = (TextView) findViewById(R.id.listgamesview);
         try {
-            jsonStartingGamesArray = new JSONArray(result);//resulting json-object is array in first place. First element of array is result.
-        } catch (JSONException e) {
-            Log.e("JSON Parser", "Error parsing data " + e.toString());
-        }
-        String s="";
-        if (jsonStartingGamesArray != null) {
-            for(int i = 0 ; i < jsonStartingGamesArray.length(); i++) {
-                try {
-                    String id;
-                    String player;
-                    JSONObject jsonStartGameObject=jsonStartingGamesArray.getJSONObject(i);
-                    id = jsonStartGameObject.getString("id");
-                    Log.v("display", id);//display in android logcat
-                    player = jsonStartGameObject.getString("player");
-                    s+=String.format(";id:%s,player:%s",id,player);
-                } catch (JSONException e) {
-                    Log.e("JSON Parser", "Error parsing data " + e.toString());
+            JSONObject jsonObject=new JSONObject(result);
+            JSONArray jsonStartingGamesArray = jsonObject.getJSONArray("games");
+            String s="";
+            if (jsonStartingGamesArray != null) {
+                for(int i = 0 ; i < jsonStartingGamesArray.length(); i++) {
+                    try {
+                        String id;
+                        String player;
+                        JSONObject jsonStartGameObject=jsonStartingGamesArray.getJSONObject(i);
+                        id = jsonStartGameObject.getString("id");
+                        Log.v("display", id);//display in android logcat
+                        player = jsonStartGameObject.getString("player");
+                        s+=String.format(";id:%s,player:%s",id,player);
+                    } catch (JSONException e) {
+                        Log.e("JSON Parser", "Error parsing data " + e.toString());
+                    }
                 }
             }
+            //display processed result in textview
+            tView.setText(s);
+        } catch (JSONException e) {
+            Log.e("JSON Parser", "Error parsing data " + e.toString());
+            tView.setText(result);
         }
-        //display processed result in textview
-        TextView tView = (TextView) findViewById(R.id.listgamesview);
-        tView.setText(s);
 
     }
 
