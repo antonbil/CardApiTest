@@ -67,7 +67,7 @@ public class CallAPI extends AsyncTask<String, String, String> {
         String line;
         try {
             while ((line = reader.readLine()) != null) {
-                sb.append(line + "\n");
+                sb.append(line).append("\n");
             }
         } catch (IOException e) {
             e.printStackTrace();

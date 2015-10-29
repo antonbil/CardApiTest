@@ -136,7 +136,7 @@ public class MainActivity extends Activity  implements OnTaskCompleted{
         return false;
     }    /**
      * displays result of call to create new player
-     * @param result
+     * @param result = json-string
      */
     private void sendPlayer(String result){
         //display result in textview
@@ -146,7 +146,7 @@ public class MainActivity extends Activity  implements OnTaskCompleted{
 
     /**
      * processes result of start-game request
-     * @param result
+     * @param result = json-string
      */
     private void startGame(String result){
         Log.v("display", result);//display in android logcat
@@ -165,29 +165,31 @@ public class MainActivity extends Activity  implements OnTaskCompleted{
     }
     /**
      * displays result of starting games
-     * @param result
+     * @param result  = json-string
      */
     private void startingGames(String result){
         //example how to parse json-string in java
 
         JSONArray jsonStartingGamesArray=null;
-        String id="";
-        String player="";
         try {
             jsonStartingGamesArray = new JSONArray(result);//resulting json-object is array in first place. First element of array is result.
         } catch (JSONException e) {
             Log.e("JSON Parser", "Error parsing data " + e.toString());
         }
         String s="";
-        for(int i = 0 ; i < jsonStartingGamesArray.length(); i++) {
-            try {
-                JSONObject jsonStartGameObject=jsonStartingGamesArray.getJSONObject(i);;
-                id = jsonStartGameObject.getString("id");
-                Log.v("display", id);//display in android logcat
-                player = jsonStartGameObject.getString("player");
-                s+=String.format(";id:%s,player:%s",id,player);
-            } catch (JSONException e) {
-                Log.e("JSON Parser", "Error parsing data " + e.toString());
+        if (jsonStartingGamesArray != null) {
+            for(int i = 0 ; i < jsonStartingGamesArray.length(); i++) {
+                try {
+                    String id;
+                    String player;
+                    JSONObject jsonStartGameObject=jsonStartingGamesArray.getJSONObject(i);
+                    id = jsonStartGameObject.getString("id");
+                    Log.v("display", id);//display in android logcat
+                    player = jsonStartGameObject.getString("player");
+                    s+=String.format(";id:%s,player:%s",id,player);
+                } catch (JSONException e) {
+                    Log.e("JSON Parser", "Error parsing data " + e.toString());
+                }
             }
         }
         //display processed result in textview
