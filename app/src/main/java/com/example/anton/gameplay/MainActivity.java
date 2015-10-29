@@ -21,14 +21,14 @@ import org.json.JSONObject;
 
 public class MainActivity extends Activity  implements OnTaskCompleted{
 
-    public static final String CARD_API = "http://192.168.2.8/CardApi/";
+    private static final String CARD_API = "http://192.168.2.8/CardApi/";
     //persistent data to store user-info, used to identify user
     private String password;
     private String name;
     private String id;
 
-    final Context context = this;//to find resources etc
-    final OnTaskCompleted onTaskCompleted = this;//enables call-back methods
+    private final Context context = this;//to find resources etc
+    private final OnTaskCompleted onTaskCompleted = this;//enables call-back methods
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

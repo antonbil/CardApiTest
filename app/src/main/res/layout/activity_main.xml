@@ -1,16 +1,14 @@
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent"
-    android:layout_height="match_parent" android:paddingLeft="@dimen/activity_horizontal_margin"
-    android:paddingRight="@dimen/activity_horizontal_margin"
-    android:paddingTop="@dimen/activity_vertical_margin"
-    android:paddingBottom="@dimen/activity_vertical_margin" tools:context=".MainActivity">
-
-    <LinearLayout
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools"
         android:orientation="vertical"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_alignParentTop="true"
-        android:layout_alignParentStart="true">
+        android:layout_alignParentStart="true"
+        android:paddingLeft="@dimen/activity_horizontal_margin"
+        android:paddingRight="@dimen/activity_horizontal_margin"
+        android:paddingTop="@dimen/activity_vertical_margin"
+        android:paddingBottom="@dimen/activity_vertical_margin" tools:context=".MainActivity">
 
         <TextView
             android:text="@string/hello_world"
@@ -28,7 +26,8 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="id"
+                android:text="@string/id"
+                android:labelFor="@+id/id_text"
                 android:id="@+id/textView3" />
 
             <EditText
@@ -36,7 +35,8 @@
                 android:layout_height="wrap_content"
                 android:id="@+id/id_text"
                 android:minWidth="100dp"
-                android:editable="true" />
+                android:editable="true"
+                android:inputType="text" />
 
         </LinearLayout>
         <LinearLayout
@@ -48,6 +48,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/name_resource"
+                android:labelFor="@+id/name_text"
                 android:id="@+id/textView_name" />
 
             <EditText
@@ -55,7 +56,8 @@
                 android:layout_height="wrap_content"
                 android:id="@+id/name_text"
                 android:minWidth="100dp"
-                android:editable="true" />
+                android:editable="true"
+                android:inputType="text" />
 
         </LinearLayout>
         <LinearLayout
@@ -67,13 +69,16 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/password_resource"
+                android:labelFor="@+id/editText"
                 android:id="@+id/textView_password" />
 
             <EditText
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:id="@+id/editText"
-                android:password="true" />
+                android:password="true"
+                android:labelFor="@+id/password_text"
+                android:inputType="text" />
 
             <EditText
                 android:layout_width="wrap_content"
@@ -81,13 +86,14 @@
                 android:id="@+id/password_text"
                 android:minWidth="100dp"
                 android:editable="true"
-                android:password="true" />
+                android:password="true"
+                android:inputType="text" />
 
         </LinearLayout>
         <Button
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Change name"
+            android:text="@string/change_name"
             android:id="@+id/button_savename" />
 
          <LinearLayout
@@ -103,7 +109,7 @@
              <Button
                  android:layout_width="wrap_content"
                  android:layout_height="wrap_content"
-                 android:text="Send Player"
+                 android:text="@string/send_player"
                  android:id="@+id/button_sendplayer" />
         </LinearLayout>
         <LinearLayout
@@ -119,7 +125,7 @@
             <Button
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="List Games"
+                android:text="@string/list_games"
                 android:id="@+id/button_listgames" />
         </LinearLayout>
         <LinearLayout
@@ -135,7 +141,8 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="game number:"
+                    android:text="@string/game_number"
+                    android:labelFor="@+id/id_gamenumber"
                     android:id="@+id/startgametextview" />
 
                 <EditText
@@ -143,7 +150,8 @@
                     android:layout_height="wrap_content"
                     android:id="@+id/id_gamenumber"
                     android:minWidth="100dp"
-                    android:editable="true" />
+                    android:editable="true"
+                    android:inputType="number" />
 
             </LinearLayout>
             <TextView
@@ -154,10 +162,10 @@
             <Button
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Start Game"
+                android:text="@string/start_game"
                 android:id="@+id/button_startgame" />
         </LinearLayout>
 
 
     </LinearLayout>
-</RelativeLayout>
+
