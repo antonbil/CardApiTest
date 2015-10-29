@@ -1,0 +1,21 @@
+<resources>
+    <string name="app_name">CardApi Test</string>
+
+    <string name="hello_world">Client for CardApi</string>
+    <string name="action_settings">Settings</string>
+    <string name="infobutontext">Get Info</string>
+    <string name="title_activity_result">Results</string>
+    <string name="EXTRA_MESSAGE">result</string>
+    <string name="GET">GET</string>
+    <string name="startinggames">startinggames</string>
+    <string name="POST">POST</string>
+    <string name="POST1">post</string>
+    <string name="name_text">name</string>
+    <string name="id_text">id</string>
+    <string name="password_text">password</string>
+    <string name="sendplayer">sendplayer</string>
+    <string name="startgame">startgame</string>
+    <string name="name_resource">name</string>
+    <string name="password_resource">password</string>
+    <string name="about_action">about</string>
+</resources>
