@@ -21,7 +21,8 @@ import org.json.JSONObject;
 
 public class MainActivity extends Activity  implements OnTaskCompleted{
 
-    private static final String CARD_API = "http://192.168.2.8/CardApi/";
+    //private static final String CARD_API = "http://192.168.2.8/CardApi/";
+    private static final String CARD_API = "http://46.105.120.168/cardapi/";
     //persistent data to store user-info, used to identify user
     private String password;
     private String name;
