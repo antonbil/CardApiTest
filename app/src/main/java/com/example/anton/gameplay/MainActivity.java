@@ -53,13 +53,19 @@ public class MainActivity extends Activity  implements OnTaskCompleted{
             }
         });
         //button send player
-        final Button sendplayerbutton = (Button) findViewById(R.id.button_listgames);
-        sendplayerbutton.setOnClickListener(new View.OnClickListener() {
+        final Button listgamesbutton = (Button) findViewById(R.id.button_listgames);
+        listgamesbutton.setOnClickListener(new View.OnClickListener() {
 
             @Override
             public void onClick(View v) {
                 String urlString = CARD_API +String.format("games/%s/starting",id);
-                new CallAPI(onTaskCompleted, getString(R.string.startinggames)).execute(urlString, getString(R.string.GET));
+                final int a=5;
+                new CallAPI(onTaskCompleted, getString(R.string.startinggames))
+                {
+                    protected void onPostExecute(String result) {
+                        int b=a+8;
+                    }
+                    }.execute(urlString, getString(R.string.GET));
             }
         });
         //button_startgame
@@ -75,8 +81,8 @@ public class MainActivity extends Activity  implements OnTaskCompleted{
             }
         });
         //button list games
-        final Button listgamesbutton = (Button) findViewById(R.id.button_sendplayer);
-        listgamesbutton.setOnClickListener(new View.OnClickListener() {
+        final Button sendplayerbutton = (Button) findViewById(R.id.button_sendplayer);
+        sendplayerbutton.setOnClickListener(new View.OnClickListener() {
 
             @Override
             public void onClick(View v) {
